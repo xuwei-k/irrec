@@ -1,12 +1,12 @@
 // shadow sbt-scalajs' crossProject and CrossType from Scala.js 0.6.x
 import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
 
-val catsVersion = "1.6.1"
+val catsVersion = "2.0.0-RC1"
 val catsCollectionsVersion = "0.8.0"
-val scalacheckVersion = "1.13.5"
+val scalacheckVersion = "1.14.0"
 val drosteVersion = "0.7.0"
 val fastParseVersion = "2.1.0"
-val scalaJsDomVersion = "0.9.6"
+val scalaJsDomVersion = "0.9.7"
 
 val catsOrg = "org.typelevel"
 val scalacheckOrg = "org.scalacheck"
@@ -34,7 +34,7 @@ inThisBuild(
 
 coverageExcludedPackages in ThisBuild := "ceedubs.irrec.bench"
 
-scalaVersion in Global := "2.12.8"
+scalaVersion in Global := "2.12.9"
 
 lazy val kleene = crossProject(JSPlatform, JVMPlatform)
   .crossType(CrossType.Pure)
@@ -223,9 +223,9 @@ val scalacOptionSettings: Seq[Setting[_]] = {
 }
 
 val commonSettings: Seq[Setting[_]] = Seq(
-  addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.7"),
-  scalaVersion := "2.12.8",
-  crossScalaVersions := List("2.11.12", "2.12.8"),
+  addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
+  scalaVersion := "2.12.9",
+  crossScalaVersions := List("2.11.12", "2.12.9", "2.13.0"),
   autoAPIMappings := true
 ) ++ scalacOptionSettings
 
